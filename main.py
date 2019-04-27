@@ -17,6 +17,14 @@ class MainWindow(QMainWindow, ui.Ui_MainWindow):
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
         self.actionClassifier_Help.triggered.connect(self.openHelp)
+
+    """
+    各种事件的处理
+    """
+
+    def resizeEvent(self, event):
+        # self.root_horizontal.resize(event.size().width(), event.size().height() - 25)
+        pass
     
     def openHelp(self):
         self.helpWindow = HelpWindow()
