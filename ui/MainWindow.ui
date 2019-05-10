@@ -7,13 +7,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-       <width>1024</width>
-       <height>768</height>
+       <width>1170</width>
+       <height>808</height>
    </rect>
   </property>
+     <property name="contextMenuPolicy">
+         <enum>Qt::DefaultContextMenu</enum>
+     </property>
+     <property name="acceptDrops">
+         <bool>false</bool>
+     </property>
   <property name="windowTitle">
    <string>Classifier</string>
   </property>
+     <property name="windowIcon">
+         <iconset resource="../resources_rc/resources.qrc">
+             <normaloff>:/icons/ico/logo.ico</normaloff>
+             <normalon>:/icons/ico/logo.ico</normalon>
+             <disabledoff>:/icons/ico/logo.ico</disabledoff>
+             <disabledon>:/icons/ico/logo.ico</disabledon>:/icons/ico/logo.ico
+         </iconset>
+     </property>
      <widget class="QWidget" name="centralwidget">
          <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
@@ -22,6 +36,12 @@
                          <layout class="QVBoxLayout" name="verticalLayout_3">
                              <item>
                                  <widget class="QGroupBox" name="groupBox">
+                                     <property name="minimumSize">
+                                         <size>
+                                             <width>500</width>
+                                             <height>0</height>
+                                         </size>
+                                     </property>
                                      <property name="maximumSize">
                                          <size>
                                              <width>600</width>
@@ -29,65 +49,239 @@
                                          </size>
                                      </property>
                                      <property name="title">
-                                         <string>GroupBox</string>
+                                         <string>数据</string>
                                      </property>
                                      <layout class="QVBoxLayout" name="verticalLayout_4">
                                          <item>
-                                             <layout class="QGridLayout" name="gridLayout">
-                                                 <item row="1" column="0">
-                                                     <widget class="QLabel" name="label_2">
-                                                         <property name="text">
-                                                             <string>TextLabel</string>
+                                             <layout class="QVBoxLayout" name="verticalLayout_6">
+                                                 <property name="sizeConstraint">
+                                                     <enum>QLayout::SetMinimumSize</enum>
+                                                 </property>
+                                                 <item>
+                                                     <widget class="QGroupBox" name="groupBox_2">
+                                                         <property name="sizePolicy">
+                                                             <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                                                                 <horstretch>0</horstretch>
+                                                                 <verstretch>0</verstretch>
+                                                             </sizepolicy>
                                                          </property>
-                                                     </widget>
-                                                 </item>
-                                                 <item row="0" column="0">
-                                                     <widget class="QLabel" name="label">
-                                                         <property name="text">
-                                                             <string>TextLabel</string>
+                                                         <property name="title">
+                                                             <string>文件列表</string>
                                                          </property>
-                                                     </widget>
-                                                 </item>
-                                                 <item row="0" column="1">
-                                                     <widget class="QComboBox" name="comboBox">
-                                                         <item>
-                                                             <property name="text">
-                                                                 <string>感知机</string>
+                                                         <widget class="QWidget" name="verticalLayoutWidget">
+                                                             <property name="geometry">
+                                                                 <rect>
+                                                                     <x>9</x>
+                                                                     <y>19</y>
+                                                                     <width>481</width>
+                                                                     <height>321</height>
+                                                                 </rect>
                                                              </property>
-                                                         </item>
-                                                         <item>
-                                                             <property name="text">
-                                                                 <string>KNN</string>
-                                                             </property>
-                                                         </item>
+                                                             <layout class="QVBoxLayout" name="verticalLayout_2">
+                                                                 <property name="sizeConstraint">
+                                                                     <enum>QLayout::SetMaximumSize</enum>
+                                                                 </property>
+                                                                 <item>
+                                                                     <widget class="QTableWidget"
+                                                                             name="files_tableWidget">
+                                                                         <property name="sizePolicy">
+                                                                             <sizepolicy hsizetype="Expanding"
+                                                                                         vsizetype="Expanding">
+                                                                                 <horstretch>0</horstretch>
+                                                                                 <verstretch>0</verstretch>
+                                                                             </sizepolicy>
+                                                                         </property>
+                                                                         <property name="minimumSize">
+                                                                             <size>
+                                                                                 <width>380</width>
+                                                                                 <height>200</height>
+                                                                             </size>
+                                                                         </property>
+                                                                         <property name="acceptDrops">
+                                                                             <bool>true</bool>
+                                                                         </property>
+                                                                         <property name="dragEnabled">
+                                                                             <bool>true</bool>
+                                                                         </property>
+                                                                         <property name="dragDropMode">
+                                                                             <enum>QAbstractItemView::DropOnly</enum>
+                                                                         </property>
+                                                                         <property name="horizontalScrollMode">
+                                                                             <enum>QAbstractItemView::ScrollPerPixel
+                                                                             </enum>
+                                                                         </property>
+                                                                         <property name="sortingEnabled">
+                                                                             <bool>false</bool>
+                                                                         </property>
+                                                                         <property name="rowCount">
+                                                                             <number>0</number>
+                                                                         </property>
+                                                                         <property name="columnCount">
+                                                                             <number>2</number>
+                                                                         </property>
+                                                                         <attribute name="horizontalHeaderVisible">
+                                                                             <bool>true</bool>
+                                                                         </attribute>
+                                                                         <attribute
+                                                                                 name="horizontalHeaderCascadingSectionResizes">
+                                                                             <bool>false</bool>
+                                                                         </attribute>
+                                                                         <attribute
+                                                                                 name="horizontalHeaderDefaultSectionSize">
+                                                                             <number>180</number>
+                                                                         </attribute>
+                                                                         <attribute
+                                                                                 name="horizontalHeaderHighlightSections">
+                                                                             <bool>true</bool>
+                                                                         </attribute>
+                                                                         <attribute
+                                                                                 name="horizontalHeaderShowSortIndicator"
+                                                                                 stdset="0">
+                                                                             <bool>false</bool>
+                                                                         </attribute>
+                                                                         <attribute name="verticalHeaderVisible">
+                                                                             <bool>false</bool>
+                                                                         </attribute>
+                                                                         <column>
+                                                                             <property name="text">
+                                                                                 <string>Filename</string>
+                                                                             </property>
+                                                                         </column>
+                                                                         <column>
+                                                                             <property name="text">
+                                                                                 <string>Status</string>
+                                                                             </property>
+                                                                         </column>
+                                                                     </widget>
+                                                                 </item>
+                                                             </layout>
+                                                         </widget>
                                                      </widget>
-                                                 </item>
-                                                 <item row="1" column="1">
-                                                     <widget class="QComboBox" name="comboBox_2"/>
                                                  </item>
                                              </layout>
                                          </item>
                                          <item>
-                                             <widget class="QGroupBox" name="groupBox_2">
+                                             <widget class="QGroupBox" name="groupBox_4">
                                                  <property name="title">
-                                                     <string>GroupBox</string>
+                                                     <string>数据属性</string>
                                                  </property>
-                                             </widget>
-                                         </item>
-                                         <item>
-                                             <widget class="QTableWidget" name="tableWidget">
-                                                 <property name="minimumSize">
-                                                     <size>
-                                                         <width>400</width>
-                                                         <height>300</height>
-                                                     </size>
-                                                 </property>
-                                                 <property name="maximumSize">
-                                                     <size>
-                                                         <width>600</width>
-                                                         <height>16777215</height>
-                                                     </size>
-                                                 </property>
+                                                 <widget class="QWidget" name="gridLayoutWidget">
+                                                     <property name="geometry">
+                                                         <rect>
+                                                             <x>10</x>
+                                                             <y>20</y>
+                                                             <width>481</width>
+                                                             <height>331</height>
+                                                         </rect>
+                                                     </property>
+                                                     <layout class="QGridLayout" name="gridLayout">
+                                                         <item row="0" column="0">
+                                                             <widget class="QTableWidget" name="options_tableWidget">
+                                                                 <property name="sizePolicy">
+                                                                     <sizepolicy hsizetype="Expanding"
+                                                                                 vsizetype="Expanding">
+                                                                         <horstretch>0</horstretch>
+                                                                         <verstretch>0</verstretch>
+                                                                     </sizepolicy>
+                                                                 </property>
+                                                                 <property name="minimumSize">
+                                                                     <size>
+                                                                         <width>300</width>
+                                                                         <height>100</height>
+                                                                     </size>
+                                                                 </property>
+                                                                 <property name="acceptDrops">
+                                                                     <bool>true</bool>
+                                                                 </property>
+                                                                 <property name="dragEnabled">
+                                                                     <bool>true</bool>
+                                                                 </property>
+                                                                 <property name="dragDropMode">
+                                                                     <enum>QAbstractItemView::DropOnly</enum>
+                                                                 </property>
+                                                                 <property name="selectionMode">
+                                                                     <enum>QAbstractItemView::SingleSelection</enum>
+                                                                 </property>
+                                                                 <property name="horizontalScrollMode">
+                                                                     <enum>QAbstractItemView::ScrollPerPixel</enum>
+                                                                 </property>
+                                                                 <property name="sortingEnabled">
+                                                                     <bool>false</bool>
+                                                                 </property>
+                                                                 <property name="rowCount">
+                                                                     <number>0</number>
+                                                                 </property>
+                                                                 <property name="columnCount">
+                                                                     <number>2</number>
+                                                                 </property>
+                                                                 <attribute name="horizontalHeaderVisible">
+                                                                     <bool>true</bool>
+                                                                 </attribute>
+                                                                 <attribute
+                                                                         name="horizontalHeaderCascadingSectionResizes">
+                                                                     <bool>false</bool>
+                                                                 </attribute>
+                                                                 <attribute name="horizontalHeaderDefaultSectionSize">
+                                                                     <number>180</number>
+                                                                 </attribute>
+                                                                 <attribute name="horizontalHeaderHighlightSections">
+                                                                     <bool>true</bool>
+                                                                 </attribute>
+                                                                 <attribute name="horizontalHeaderShowSortIndicator"
+                                                                            stdset="0">
+                                                                     <bool>false</bool>
+                                                                 </attribute>
+                                                                 <attribute name="verticalHeaderVisible">
+                                                                     <bool>false</bool>
+                                                                 </attribute>
+                                                                 <column>
+                                                                     <property name="text">
+                                                                         <string>Column</string>
+                                                                     </property>
+                                                                 </column>
+                                                                 <column>
+                                                                     <property name="text">
+                                                                         <string>Option</string>
+                                                                     </property>
+                                                                 </column>
+                                                             </widget>
+                                                         </item>
+                                                         <item row="1" column="0">
+                                                             <layout class="QHBoxLayout" name="optionButtonsLayout">
+                                                                 <item>
+                                                                     <widget class="QPushButton" name="xButton">
+                                                                         <property name="enabled">
+                                                                             <bool>false</bool>
+                                                                         </property>
+                                                                         <property name="text">
+                                                                             <string>设定当前项为x轴</string>
+                                                                         </property>
+                                                                     </widget>
+                                                                 </item>
+                                                                 <item>
+                                                                     <widget class="QPushButton" name="yButton">
+                                                                         <property name="enabled">
+                                                                             <bool>false</bool>
+                                                                         </property>
+                                                                         <property name="text">
+                                                                             <string>设定当前项为y轴</string>
+                                                                         </property>
+                                                                     </widget>
+                                                                 </item>
+                                                                 <item>
+                                                                     <widget class="QPushButton" name="cButton">
+                                                                         <property name="enabled">
+                                                                             <bool>false</bool>
+                                                                         </property>
+                                                                         <property name="text">
+                                                                             <string>设定当前项为类别</string>
+                                                                         </property>
+                                                                     </widget>
+                                                                 </item>
+                                                             </layout>
+                                                         </item>
+                                                     </layout>
+                                                 </widget>
                                              </widget>
                                          </item>
                                      </layout>
@@ -100,11 +294,11 @@
                              <item>
                                  <widget class="QGroupBox" name="groupBox_3">
                                      <property name="title">
-                                         <string>GroupBox</string>
+                                         <string>可视化</string>
                                      </property>
                                      <layout class="QVBoxLayout" name="verticalLayout_5">
                                          <item>
-                                             <widget class="QWebEngineView" name="widget" native="true">
+                                             <widget class="QWebEngineView" name="plotter" native="true">
                                                  <property name="minimumSize">
                                                      <size>
                                                          <width>600</width>
@@ -133,7 +327,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-        <width>1024</width>
+        <width>1170</width>
      <height>23</height>
     </rect>
    </property>
@@ -146,6 +340,8 @@
        <addaction name="separator"/>
        <addaction name="action_Save"/>
        <addaction name="actionSave_As"/>
+       <addaction name="separator"/>
+       <addaction name="action_Exit"/>
    </widget>
    <widget class="QMenu" name="menu_Edit">
     <property name="title">
@@ -270,6 +466,14 @@
              <string>Del</string>
          </property>
      </action>
+     <action name="action_Exit">
+         <property name="text">
+             <string>退出(&amp;X)</string>
+         </property>
+         <property name="shortcut">
+             <string>Alt+X</string>
+         </property>
+     </action>
  </widget>
     <customwidgets>
         <customwidget>
@@ -279,6 +483,45 @@
             <container>1</container>
         </customwidget>
     </customwidgets>
- <resources/>
- <connections/>
+    <resources>
+        <include location="../resources_rc/resources.qrc"/>
+    </resources>
+    <connections>
+        <connection>
+            <sender>action_Exit</sender>
+            <signal>triggered()</signal>
+            <receiver>MainWindow</receiver>
+            <slot>close()</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>-1</x>
+                    <y>-1</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>534</x>
+                    <y>383</y>
+                </hint>
+            </hints>
+        </connection>
+        <connection>
+            <sender>files_tableWidget</sender>
+            <signal>cellDoubleClicked(int,int)</signal>
+            <receiver>MainWindow</receiver>
+            <slot>on_file_dblclicked(int,int)</slot>
+            <hints>
+                <hint type="sourcelabel">
+                    <x>221</x>
+                    <y>226</y>
+                </hint>
+                <hint type="destinationlabel">
+                    <x>534</x>
+                    <y>383</y>
+                </hint>
+            </hints>
+        </connection>
+    </connections>
+    <slots>
+        <slot>on_file_dblclicked(int,int)</slot>
+        <slot>on_column_right_clicked(int)</slot>
+    </slots>
 </ui>
