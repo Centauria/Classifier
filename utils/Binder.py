@@ -2,7 +2,7 @@ import os
 
 
 class Binder:
-    def __init__(self, input_names: iter = tuple(), output_names: iter = tuple()):
+    def __init__(self, input_names: iter, output_names: iter):
         self._input = tuple(input_names)
         self._output = tuple(output_names)
         self._input_dict = dict()
@@ -75,3 +75,12 @@ class Binder:
                 result += os.linesep
                 result += '%s <--> %s' % (k, v)
         return result
+    
+    @staticmethod
+    def create_standard_binder(data: iter):
+        binder = Binder(data, range(len(data)))
+        i = 0
+        for d in data:
+            binder.connect(d, i)
+            i += 1
+        return binder

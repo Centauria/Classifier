@@ -107,7 +107,7 @@
                                                                              <enum>QAbstractItemView::DropOnly</enum>
                                                                          </property>
                                                                          <property name="horizontalScrollMode">
-                                                                             <enum>QAbstractItemView::ScrollPerPixel
+                                                                             <enum>QAbstractItemView::ScrollPerItem
                                                                              </enum>
                                                                          </property>
                                                                          <property name="sortingEnabled">
@@ -203,7 +203,7 @@
                                                                      <enum>QAbstractItemView::SingleSelection</enum>
                                                                  </property>
                                                                  <property name="horizontalScrollMode">
-                                                                     <enum>QAbstractItemView::ScrollPerPixel</enum>
+                                                                     <enum>QAbstractItemView::ScrollPerItem</enum>
                                                                  </property>
                                                                  <property name="sortingEnabled">
                                                                      <bool>false</bool>
@@ -371,9 +371,38 @@
     </property>
     <addaction name="actionClassifier_Help"/>
    </widget>
+      <widget class="QMenu" name="menu_Data">
+          <property name="title">
+              <string>数据(&amp;D)</string>
+          </property>
+          <widget class="QMenu" name="menuset_current_item_as">
+              <property name="enabled">
+                  <bool>false</bool>
+              </property>
+              <property name="title">
+                  <string>设置当前项为</string>
+              </property>
+              <addaction name="actionset_x"/>
+              <addaction name="actionset_y"/>
+              <addaction name="actionset_c"/>
+          </widget>
+          <widget class="QMenu" name="menuset_current_file_as">
+              <property name="enabled">
+                  <bool>false</bool>
+              </property>
+              <property name="title">
+                  <string>设置当前文件为</string>
+              </property>
+              <addaction name="actionset_train"/>
+              <addaction name="actionset_test"/>
+          </widget>
+          <addaction name="menuset_current_item_as"/>
+          <addaction name="menuset_current_file_as"/>
+      </widget>
    <addaction name="menu_File"/>
    <addaction name="menu_Edit"/>
    <addaction name="menu_View"/>
+      <addaction name="menu_Data"/>
    <addaction name="menu_Settings"/>
    <addaction name="menu_Help"/>
   </widget>
@@ -472,6 +501,80 @@
          </property>
          <property name="shortcut">
              <string>Alt+X</string>
+         </property>
+     </action>
+     <action name="actionset_Y">
+         <property name="text">
+             <string>设置当前项为y轴</string>
+         </property>
+     </action>
+     <action name="actionset_C">
+         <property name="text">
+             <string>设置当前项为类别</string>
+         </property>
+     </action>
+     <action name="actionset_X_2">
+         <property name="text">
+             <string>set_X</string>
+         </property>
+     </action>
+     <action name="actionset_Y_2">
+         <property name="text">
+             <string>set_Y</string>
+         </property>
+     </action>
+     <action name="actionx">
+         <property name="text">
+             <string>x</string>
+         </property>
+     </action>
+     <action name="actionset_x">
+         <property name="checkable">
+             <bool>true</bool>
+         </property>
+         <property name="text">
+             <string>x轴</string>
+         </property>
+         <property name="shortcut">
+             <string>Ctrl+Alt+X</string>
+         </property>
+     </action>
+     <action name="actionset_y">
+         <property name="checkable">
+             <bool>true</bool>
+         </property>
+         <property name="text">
+             <string>y轴</string>
+         </property>
+         <property name="shortcut">
+             <string>Ctrl+Alt+Y</string>
+         </property>
+     </action>
+     <action name="actionset_c">
+         <property name="checkable">
+             <bool>true</bool>
+         </property>
+         <property name="text">
+             <string>类别</string>
+         </property>
+         <property name="shortcut">
+             <string>Ctrl+Alt+C</string>
+         </property>
+     </action>
+     <action name="actionset_train">
+         <property name="checkable">
+             <bool>true</bool>
+         </property>
+         <property name="text">
+             <string>训练集</string>
+         </property>
+     </action>
+     <action name="actionset_test">
+         <property name="checkable">
+             <bool>true</bool>
+         </property>
+         <property name="text">
+             <string>测试集</string>
          </property>
      </action>
  </widget>
