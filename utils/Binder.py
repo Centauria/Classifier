@@ -2,7 +2,8 @@ import os
 
 
 class Binder:
-    def __init__(self, input_names: iter, output_names: iter):
+    def __init__(self, input_names: iter = None, output_names: iter = None):
+        input_names, output_names = input_names or tuple(), output_names or tuple()
         self._input = tuple(input_names)
         self._output = tuple(output_names)
         self._input_dict = dict()

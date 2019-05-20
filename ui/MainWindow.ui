@@ -3,6 +3,9 @@
     <author>Centauria</author>
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+     <property name="windowModality">
+         <enum>Qt::WindowModal</enum>
+     </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -171,10 +174,113 @@
                                                              <x>10</x>
                                                              <y>20</y>
                                                              <width>481</width>
-                                                             <height>331</height>
+                                                             <height>321</height>
                                                          </rect>
                                                      </property>
                                                      <layout class="QGridLayout" name="gridLayout">
+                                                         <item row="2" column="0">
+                                                             <layout class="QHBoxLayout" name="horizontalLayout_3">
+                                                                 <item>
+                                                                     <widget class="QLabel" name="label">
+                                                                         <property name="minimumSize">
+                                                                             <size>
+                                                                                 <width>40</width>
+                                                                                 <height>0</height>
+                                                                             </size>
+                                                                         </property>
+                                                                         <property name="maximumSize">
+                                                                             <size>
+                                                                                 <width>40</width>
+                                                                                 <height>16777215</height>
+                                                                             </size>
+                                                                         </property>
+                                                                         <property name="text">
+                                                                             <string>分类器</string>
+                                                                         </property>
+                                                                     </widget>
+                                                                 </item>
+                                                                 <item>
+                                                                     <widget class="QComboBox"
+                                                                             name="classifier_comboBox">
+                                                                         <item>
+                                                                             <property name="text">
+                                                                                 <string>位势函数</string>
+                                                                             </property>
+                                                                         </item>
+                                                                     </widget>
+                                                                 </item>
+                                                                 <item alignment="Qt::AlignRight">
+                                                                     <widget class="QPushButton"
+                                                                             name="classifier_property_pushButton">
+                                                                         <property name="minimumSize">
+                                                                             <size>
+                                                                                 <width>75</width>
+                                                                                 <height>0</height>
+                                                                             </size>
+                                                                         </property>
+                                                                         <property name="text">
+                                                                             <string>属性</string>
+                                                                         </property>
+                                                                     </widget>
+                                                                 </item>
+                                                                 <item alignment="Qt::AlignRight">
+                                                                     <widget class="QPushButton"
+                                                                             name="create_classifier_pushButton">
+                                                                         <property name="minimumSize">
+                                                                             <size>
+                                                                                 <width>75</width>
+                                                                                 <height>0</height>
+                                                                             </size>
+                                                                         </property>
+                                                                         <property name="text">
+                                                                             <string>构建分类器</string>
+                                                                         </property>
+                                                                     </widget>
+                                                                 </item>
+                                                                 <item>
+                                                                     <widget class="QPushButton"
+                                                                             name="show_test_pushButton">
+                                                                         <property name="text">
+                                                                             <string>显示分类结果</string>
+                                                                         </property>
+                                                                     </widget>
+                                                                 </item>
+                                                             </layout>
+                                                         </item>
+                                                         <item row="1" column="0">
+                                                             <layout class="QHBoxLayout" name="optionButtonsLayout">
+                                                                 <item>
+                                                                     <widget class="QPushButton" name="xButton">
+                                                                         <property name="enabled">
+                                                                             <bool>false</bool>
+                                                                         </property>
+                                                                         <property name="text">
+                                                                             <string>设定当前项为x轴</string>
+                                                                         </property>
+                                                                     </widget>
+                                                                 </item>
+                                                                 <item>
+                                                                     <widget class="QPushButton" name="yButton">
+                                                                         <property name="enabled">
+                                                                             <bool>false</bool>
+                                                                         </property>
+                                                                         <property name="text">
+                                                                             <string>设定当前项为y轴</string>
+                                                                         </property>
+                                                                     </widget>
+                                                                 </item>
+                                                                 <item>
+                                                                     <widget class="QPushButton" name="cButton">
+                                                                         <property name="enabled">
+                                                                             <bool>false</bool>
+                                                                         </property>
+                                                                         <property name="text">
+                                                                             <string>设定当前项为类别</string>
+                                                                         </property>
+                                                                     </widget>
+                                                                 </item>
+                                                             </layout>
+                                                         </item>
                                                          <item row="0" column="0">
                                                              <widget class="QTableWidget" name="options_tableWidget">
                                                                  <property name="sizePolicy">
@@ -246,35 +352,39 @@
                                                                  </column>
                                                              </widget>
                                                          </item>
-                                                         <item row="1" column="0">
-                                                             <layout class="QHBoxLayout" name="optionButtonsLayout">
+                                                         <item row="3" column="0">
+                                                             <layout class="QHBoxLayout" name="horizontalLayout_4">
                                                                  <item>
-                                                                     <widget class="QPushButton" name="xButton">
-                                                                         <property name="enabled">
-                                                                             <bool>false</bool>
-                                                                         </property>
+                                                                     <widget class="QLabel" name="label_2">
                                                                          <property name="text">
-                                                                             <string>设定当前项为x轴</string>
+                                                                             <string>可视化选项</string>
                                                                          </property>
                                                                      </widget>
                                                                  </item>
                                                                  <item>
-                                                                     <widget class="QPushButton" name="yButton">
-                                                                         <property name="enabled">
-                                                                             <bool>false</bool>
-                                                                         </property>
+                                                                     <widget class="QCheckBox" name="train_checkBox">
                                                                          <property name="text">
-                                                                             <string>设定当前项为y轴</string>
+                                                                             <string>训练集数据</string>
+                                                                         </property>
+                                                                         <property name="checked">
+                                                                             <bool>true</bool>
                                                                          </property>
                                                                      </widget>
                                                                  </item>
                                                                  <item>
-                                                                     <widget class="QPushButton" name="cButton">
-                                                                         <property name="enabled">
+                                                                     <widget class="QCheckBox" name="test_checkBox">
+                                                                         <property name="text">
+                                                                             <string>测试集数据</string>
+                                                                         </property>
+                                                                         <property name="checked">
                                                                              <bool>false</bool>
                                                                          </property>
+                                                                     </widget>
+                                                                 </item>
+                                                                 <item>
+                                                                     <widget class="QCheckBox" name="result_checkBox">
                                                                          <property name="text">
-                                                                             <string>设定当前项为类别</string>
+                                                                             <string>分类结果</string>
                                                                          </property>
                                                                      </widget>
                                                                  </item>

@@ -17,8 +17,8 @@ class PotentialClassifier(classifier.AbstractClassifier):
     
     def __init__(self, X, y, classes: iter = None,
                  potential_function=PotentialFunctions.exponential()):
-        self.X = X
-        self.y = y
+        self.X = np.array(X)
+        self.y = np.array(y)
         self.W = None
         classes = classes or set(y)
         self.class_binder = utils.Binder.create_standard_binder(classes)
@@ -37,15 +37,16 @@ class PotentialClassifier(classifier.AbstractClassifier):
         
         point_flag = np.zeros((data_num, 1))
         point_potential = np.zeros((data_num, len(self.class_binder.input_names)))
-        for i in range(data_num):
+        i = 0
+        while i < data_num:
             if point_potential[i, self.data_type(i)] == np.max(np.squeeze(point_potential[i, :])) \
                     and point_potential[i, self.data_type(i)] != 0:
-                pass
+                i += 1
             else:
                 point_flag[i] += 1
                 for j in range(data_num):
                     point_potential[j, self.data_type(i)] += potential[i, j]
-                i = 1
+                i = 0
         self.W = point_flag
         return point_flag
     
@@ -62,8 +63,8 @@ class PotentialClassifier(classifier.AbstractClassifier):
         for i in range(test_len):
             for j in range(train_len):
                 test_potential[i, self.data_type(j)] += self.W[j] * potential[i, j]
-        
-        test_type = np.zeros((test_len, 1))
+
+        test_type = np.zeros((test_len, 1), dtype=np.object)
         for i in range(test_len):
             height = np.max(test_potential[i, :])
             test_flag = np.argmax(test_potential[i, :])

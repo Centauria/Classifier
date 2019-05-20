@@ -1,5 +1,7 @@
 import pandas as pd
 import os
+import random
+import string
 import plotly.offline as pl
 import plotly.graph_objs as go
 from tempfile import TemporaryDirectory
@@ -9,8 +11,9 @@ class PlotQt:
     def __init__(self):
         self.html_directory = TemporaryDirectory('tmp')
 
-    def scatter(self, x: pd.Series, y: pd.Series, c: pd.Series = None, traces=None, file_name='temp.html'):
+    def scatter(self, x: pd.Series, y: pd.Series, c: pd.Series = None, traces=None, marker=None, file_name=None):
         traces = traces or []
+        file_name = file_name or ''.join(random.sample(string.ascii_uppercase, 8)) + '.html'
         path_html = os.sep.join([self.html_directory.name, file_name])
         if c is not None:
             classes = set(c)
@@ -21,6 +24,7 @@ class PlotQt:
                         x=x_s,
                         y=y_s,
                         mode='markers',
+                        marker=marker,
                         name=cl
                 ))
         else:
