@@ -11,6 +11,9 @@ class PlotQt:
     def __init__(self):
         self.html_directory = TemporaryDirectory('tmp')
 
+    def __del__(self):
+        self.html_directory.cleanup()
+    
     def scatter(self, x: pd.Series, y: pd.Series, c: pd.Series = None, traces=None, marker=None, file_name=None):
         traces = traces or []
         file_name = file_name or ''.join(random.sample(string.ascii_uppercase, 8)) + '.html'
@@ -31,7 +34,8 @@ class PlotQt:
             traces.append(go.Scatter(
                     x=x,
                     y=y,
-                    mode='markers'
+                    mode='markers',
+                    marker=marker
             ))
         layout = dict(
                 xaxis=dict(title=x.name),
