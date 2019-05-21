@@ -92,7 +92,7 @@ class MainWindow(QMainWindow, ui.Ui_MainWindow):
         else:
             self.statusbar.clearMessage()
             return
-    
+
         file_name = os.path.split(fname)[1]
         self.data[file_name] = data
         self.insert_file(file_name)
@@ -282,7 +282,7 @@ class MainWindow(QMainWindow, ui.Ui_MainWindow):
             if self.show_result_data:
                 if self.currentTestResult is not None:
                     test_result = self.currentTestData[[data_x, data_y]]
-                    test_result[data_c] = self.currentTestResult
+                    test_result.loc[:, data_c] = self.currentTestResult
                     if data_c:
                         self.plot_append(
                                 test_result[data_x],
