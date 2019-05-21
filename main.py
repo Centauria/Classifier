@@ -111,7 +111,7 @@ class MainWindow(QMainWindow, ui.Ui_MainWindow):
         self.currentData = self.data[current_index]
         self.options_tableWidget.setRowCount(0)
         self.currentDataBinder.output_names = self.currentData.columns
-        self.actionset_train.trigger()
+        # self.actionset_train.trigger()
         for c in self.currentData.columns:
             self.options_tableWidget.setRowCount(self.options_tableWidget.rowCount() + 1)
             self.options_tableWidget.setItem(self.options_tableWidget.rowCount() - 1, 0, QTableWidgetItem(c))
